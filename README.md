@@ -32,7 +32,9 @@ php artisan make:model-singular Post --table=my_post
 ```
 ## Installing
 
-TBD
+```bash
+composer require artchik/make-model-singular --dev
+```
 
 ## License
 
