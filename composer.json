@@ -1,0 +1,26 @@
+{
+    "name": "artchik/make-model-singular",
+    "description": "Singular Table Name \"Make Model\" Artisan Command",
+    "type": "command",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Artur Charukhchyan",
+            "email": "artur.charukhchyan@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Artchik\\MakeModelSingular\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Artchik\\MakeModelSingular\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {}
+}
