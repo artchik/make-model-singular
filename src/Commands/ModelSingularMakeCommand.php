@@ -12,6 +12,7 @@ class ModelSingularMakeCommand extends ModelMakeCommand
 
     protected $name = 'make:model-singular';
     protected $table = null;
+    protected $cdir = null;
 
     /**
      * Execute the console command.
@@ -22,6 +23,10 @@ class ModelSingularMakeCommand extends ModelMakeCommand
     {
         if ($this->option('table')) {
             $this->table = $this->option('table');
+        }
+
+        if ($this->option('cdir')) {
+            $this->cdir = $this->option('cdir');
         }
 
         parent::handle();
@@ -105,6 +110,16 @@ class ModelSingularMakeCommand extends ModelMakeCommand
     {
         $options = parent::getOptions();
         array_push($options, ['table', null, InputOption::VALUE_OPTIONAL, 'Use a custom table name']);
+        array_push($options, ['cdir', null, InputOption::VALUE_OPTIONAL, 'Use a sub-directory for the controller']);
         return $options;
+    }
+
+
+    public function call($command, array $arguments = [])
+    {
+        if ($command == 'make:controller' && $this->cdir) {
+            $arguments['name'] = $this->cdir . '\\' . $arguments['name'];
+        }
+        parent::call($command, $arguments);
     }
 }

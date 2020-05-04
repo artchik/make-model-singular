@@ -30,6 +30,10 @@ You can also specify a custom table if you wish:
 ```bash
 php artisan make:model-singular Post --table=my_post
 ```
+You can also specify a **sub-directory for a controller**:
+```bash
+php artisan make:model-singular Post --cdir=API
+```
 ## Installing
 
 ```bash
